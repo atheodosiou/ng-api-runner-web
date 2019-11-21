@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SideBarActions } from './shared/static-data/sidebar-actions';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'apiRunner';
+  toggled=true;
+  sidebarActions=SideBarActions;
+  
+  onSidebarToggle(){
+    this.toggled=!this.toggled;
+  }
+
 }
