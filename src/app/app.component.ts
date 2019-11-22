@@ -1,19 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SideBarActions } from './shared/static-data/sidebar-actions';
 import { FirebaseService } from './shared/services/firebase.service';
+import { IEndpoint } from './shared/models/interfaces/endpoint';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'apiRunner';
-  toggled=true;
+  toggled=false;
   sidebarActions=SideBarActions;
+
+  endpoints:IEndpoint[];
   constructor(private firebaseService:FirebaseService){}
   onSidebarToggle(){
     this.toggled=!this.toggled;
+  }
+
+  ngOnInit(){
+    this.manipulateSidebar();
+  }
+
+  private manipulateSidebar(){
+    this.firebaseService.getEndpoints()
+    .then(endpoints=>{
+      this.endpoints = endpoints;
+    })
+    .catch(error=>console.error(error));
   }
 
   add(){

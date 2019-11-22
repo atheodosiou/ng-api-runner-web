@@ -1,9 +1,14 @@
 <div class="d-flex wrapper" [class.toggled]="toggled">
   <!-- Sidebar -->
   <div class="sidebar-wrapper bg-white border-right">
-    <div class="sidebar-heading">Sidebar Acctions </div>
+    <div class="sidebar-heading">Endpoints </div>
     <div class="list-group list-group-flush">
-      <a *ngFor="let action of sidebarActions" class="list-group-item list-group-item-action bg-white">{{action.label}}</a>
+      <a *ngFor="let endpoint of endpoints" class="list-group-item list-group-item-action" [routerLink]="['/run-single']" >
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="font-weight-bold mr-2">{{endpoint.method}}</div>
+            <div>{{endpoint.url}}</div>
+        </div>
+      </a>
     </div>
   </div>
   <!-- /Sidebar -->
