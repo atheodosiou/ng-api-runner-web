@@ -13,6 +13,11 @@
     <nav-bar (onSidebarToggle)="onSidebarToggle()"></nav-bar>
     <!-- Page Body -->
     <div class="page-body container-fluid">
+        <button (click)="add()">Add data to firebase</button>
+        <button (click)="get()">Get data from firebase</button>
+        <button (click)="getOne()">Get one document</button>
+        <button (click)="updateOne()">Update one document</button>
+        <button (click)="deleteOne()">Delete one document</button>
         <router-outlet></router-outlet>
   </div>
   <!-- /Page Content -->
