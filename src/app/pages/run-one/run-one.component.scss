@@ -1,0 +1,12 @@
+.w-100px{
+    min-width: 100px !important;
+}
+
+.w-auto{
+    min-width: 400px!important;
+    width: calc(100% - 220px) !important;
+}
+
+select, input{
+    margin-right: 10px !important;
+}
