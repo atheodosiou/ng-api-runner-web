@@ -10,6 +10,7 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { FirebaseService } from './shared/services/firebase.service';
 import { PagesModule } from './pages/pages.module';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 @NgModule({
   declarations: [
     AppComponent
@@ -21,7 +22,8 @@ import { PagesModule } from './pages/pages.module';
     AppRoutingModule,
     MDBBootstrapModule.forRoot(),
     SharedModule,
-    PagesModule   
+    PagesModule,
+    TabsModule.forRoot()   
   ],
   providers: [FirebaseService],
   bootstrap: [AppComponent]
